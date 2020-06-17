@@ -6,6 +6,8 @@ public class Ant {
     protected String nameOfQueen;
     protected int lifespan;
     protected boolean isDead = false;
+    protected int[][] location;
+    protected int moveSpeed;
 
     public Ant() {
         age = 0;
