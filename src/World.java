@@ -44,12 +44,14 @@ class Level {
     public Level(int xy) {
         x = xy;
         y = xy;
+        levelData = new int[x][y];
         levelGenerate(x, y);
     }
 
     public Level(int x, int y) {
         this.x = x;
         this.y = y;
+        levelData = new int[x][y];
         levelGenerate(x, y);
     }
 

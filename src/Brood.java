@@ -1,7 +1,8 @@
 public class Brood extends Ant{
 
     protected int timeTillGrown;
-    protected String nameOfQueen;
+    protected boolean hasGrown = false;
+
 
     public Brood() {
         age = 0;
@@ -10,8 +11,11 @@ public class Brood extends Ant{
 
     public Brood(String queenName) {
         age = 0;
+        lifespan = 150;
+        type = "brood";
         timeTillGrown = 100; //TODO Come up with clever way to randomize time remaining
         nameOfQueen = queenName;
+        name = this.toString();
     }
 
     @Override
@@ -19,6 +23,7 @@ public class Brood extends Ant{
         super.advanceTime();
         timeTillGrown--;
         if (timeTillGrown == 0) {
+            hasGrown = true;
             Grow();
         }
     }

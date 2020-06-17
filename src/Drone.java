@@ -16,7 +16,9 @@ public class Drone extends Ant {
     public Drone(Brood b) {
         age = 0;
         type = "drone";
+        name = b.getName();
         nameOfQueen = b.nameOfQueen; // Set and Get methods?
+        lifespan = 125;
     }
 
 }
