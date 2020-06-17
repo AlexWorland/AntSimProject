@@ -29,8 +29,8 @@ public class AntManager {
         }
     }
 
-    public void addBrood() {
-
+    public void addBrood(Queen q) {
+        brood.add(new Brood(q.name));
     }
 
     public void addQueen(String s) {

@@ -13,8 +13,9 @@ public class Queen extends Ant {
         this.name = name;
     }
 
-    public Brood layBrood() {
-        return new Brood(name);
+    public void layBrood() {
+        offspring++;
+        Main.addBrood(this);
     }
 
     public int getOffspring() {

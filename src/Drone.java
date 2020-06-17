@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 public class Drone extends Ant {
 
     public Drone() {
@@ -9,6 +11,12 @@ public class Drone extends Ant {
         age = 0;
         type = "drone";
         this.name = name;
+    }
+
+    public Drone(Brood b) {
+        age = 0;
+        type = "drone";
+        nameOfQueen = b.nameOfQueen; // Set and Get methods?
     }
 
 }

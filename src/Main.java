@@ -11,6 +11,10 @@ public class Main {
         man.removeAnt(a);
     }
 
+    public static void addBrood(Queen q) {
+        man.addBrood(q);
+    }
+
     public static void main(String[] args) {
         //TODO Create World
         //TODO Intialize Ants

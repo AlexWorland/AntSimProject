@@ -1,5 +1,5 @@
 public class Soldier extends Ant {
-    
+
     public Soldier() {
         age = 0;
         type = "soldier";
@@ -11,5 +11,10 @@ public class Soldier extends Ant {
         this.name = name;
     }
 
+    public Soldier(Brood b) {
+        age = 0;
+        type = "soldier";
+        nameOfQueen = b.nameOfQueen;
+    }
 
 }
