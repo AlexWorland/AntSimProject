@@ -28,17 +28,17 @@ public class Main {
 
         boolean simFlag = true;
 
-        for (Level l: world.levels
-             ) {
-            for (int[] a: l.levelData
-                 ) {
-                for (int b: a
-                     ) {
-                    System.out.print(b + " ");
-                }
-                System.out.println();
-            }
-        }
+//        for (Level l: world.levels
+//             ) {
+//            for (int[] a: l.levelData
+//                 ) {
+//                for (int b: a
+//                     ) {
+//                    System.out.print(b + " ");
+//                }
+//                System.out.println();
+//            }
+//        }
 
         man.addQueen("THEQUEEN");
 
@@ -47,9 +47,11 @@ public class Main {
 
             man.advanceTime();
             time++;
-            if (time == 50000) {
-                int stopHere = 0;
-            }
+            System.out.print("\rTime: " + time + " Queens: " + man.queens.size() + " Soliders: " + man.soldiers.size() +
+                    " Drones: " + man.drones.size() + " Brood: " + man.brood.size() + "\r");
+//            if (time == 50000) {
+//                int stopHere = 0;
+//            }
         }
 
 

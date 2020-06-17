@@ -15,9 +15,9 @@ public class AntManager {
 
 
     public AntManager() {
-        droneThreshold = 1000;
-        soldierThreshold = 700;
-        queenThreshold = 10;
+        droneThreshold = 10005654;
+        soldierThreshold = 7003264;
+        queenThreshold = 3;
     }
 
     public void addAntFromBrood(Brood b) {

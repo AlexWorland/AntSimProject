@@ -6,7 +6,7 @@ public class Brood extends Ant{
 
     public Brood() {
         age = 0;
-        timeTillGrown = 100; //TODO Come up with clever way to randomize time remaining
+        timeTillGrown = 112; //TODO Come up with clever way to randomize time remaining
     }
 
     public Brood(String queenName) {

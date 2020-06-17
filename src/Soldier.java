@@ -16,7 +16,7 @@ public class Soldier extends Ant {
         type = "soldier";
         name = b.getName();
         nameOfQueen = b.nameOfQueen;
-        lifespan = 80;
+        lifespan = 190;
     }
 
 }
