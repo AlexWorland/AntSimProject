@@ -91,14 +91,14 @@ class Level {
     protected final int y;
     protected final int level;
     protected ArrayList<ArrayList<Location>> locationList = new ArrayList<ArrayList<Location>>();
-    protected int[][] levelData;
-    protected int[][] foodData;
+//    protected int[][] levelData;
+//    protected int[][] foodData;
 
     public Level(int xy) {
         x = xy;
         y = xy;
         this.level = 0;
-        levelData = new int[x][y];
+//        levelData = new int[x][y];
         levelGenerate(x, y);
     }
 
@@ -106,7 +106,7 @@ class Level {
         this.x = x;
         this.y = y;
         this.level = level;
-        levelData = new int[x][y];
+//        levelData = new int[x][y];
         levelGenerate(x, y);
     }
 
@@ -128,7 +128,7 @@ class Level {
     }
 
     /*
-    TODO might want to make food not appear in walls. Maybe thats ok, but they need to dig the wall first
+    TODO might want to make food not appear in walls. Maybe that's ok, but they need to dig the wall first
      */
     public ArrayList<ArrayList<Location>> foodGen(ArrayList<ArrayList<Location>> list) {
         for (int i = 0; i < x; i++) {
@@ -187,9 +187,9 @@ class Level {
         return locationList.get(y).get(x);
     }
 
-    public int[][] getLevelData() {
-        return levelData;
-    }
+//    public int[][] getLevelData() {
+//        return levelData;
+//    }
 
     public void print() {
         for (ArrayList<Location> ar: locationList

@@ -15,9 +15,9 @@ public class AntManager {
 
 
     public AntManager() {
-        droneThreshold = 30;
-        soldierThreshold = 20;
-        queenThreshold = 1;
+        droneThreshold = 3000;
+        soldierThreshold = 2000;
+        queenThreshold = 10;
     }
 
     public void addAntFromBrood(Brood b) {
@@ -115,6 +115,11 @@ public class AntManager {
 
     public void addSoldier() {
 
+    }
+
+    public void printStatus() {
+        System.out.print("Queens: " + queens.size() + " Soldiers: " + soldiers.size() +
+                " Drones: " + drones.size() + " Brood: " + brood.size() + " Dead: " + deadAntsList.size());
     }
 
 //    public void removeAnt(Ant a) {

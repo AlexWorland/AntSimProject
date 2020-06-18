@@ -21,5 +21,13 @@ public class Drone extends Ant {
         lifespan = 125;
     }
 
+    public void dig() {
+        if (location.getIsWall()) {
+            location.setIsWall(false);
+            energy -= 10;
+        }
+    }
+
+
 
 }

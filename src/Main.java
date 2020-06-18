@@ -22,7 +22,7 @@ public class Main {
 
         int worldX = 10;
         int worldY = 10;
-        int numOfLevels = 2;
+        int numOfLevels = 20;
         man = new AntManager();
         World world = new World(worldX, worldY, numOfLevels);
         world.print();
@@ -47,8 +47,12 @@ public class Main {
 
             man.advanceTime();
             time++;
-            System.out.print("\rTime: " + time + " Queens: " + man.queens.size() + " Soliders: " + man.soldiers.size() +
-                    " Drones: " + man.drones.size() + " Brood: " + man.brood.size() + "\r");
+            System.out.print("\rTime: " + time + " ");
+            man.printStatus();
+            System.out.print("\r");
+
+//            System.out.print("\rTime: " + time + " Queens: " + man.queens.size() + " Soliders: " + man.soldiers.size() +
+//                    " Drones: " + man.drones.size() + " Brood: " + man.brood.size() + "\r");
 //            if (time == 50000) {
 //                int stopHere = 0;
 //            }

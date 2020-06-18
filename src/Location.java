@@ -4,6 +4,7 @@ public class Location {
     private int y;
     private int level; // 0 = top level
     private boolean hasFood;
+    private Food food;
     private boolean isWall;
 
     public Location(int x, int y, int level) {
@@ -35,6 +36,16 @@ public class Location {
 
     public void setHasFood(boolean b) {
         hasFood = b;
+        food = new Food(); //DEBUG PURPOSE REMOVE FROM FINAL
+        if (b) {
+            food = new Food();
+        } else {
+            food = null;
+        }
+    }
+
+    public Food getFood() {
+        return food;
     }
 
     public boolean getIsWall() {
