@@ -6,7 +6,7 @@ public class Ant {
     protected String nameOfQueen;
     protected int lifespan;
     protected boolean isDead = false;
-    protected int[][] location;
+    protected int[] location;
     protected int moveSpeed;
 
     public Ant() {
@@ -26,10 +26,6 @@ public class Ant {
         type = "ant";
     }
 
-//    public void antDeath() {
-//        Main.removeAnt(this);
-//    }
-
     public void advanceTime() {
         age++;
         if (age >= lifespan) {
@@ -39,6 +35,14 @@ public class Ant {
 
     public void eat(Food f) {
         energy += f.getEnergy();
+    }
+
+    public int[] getLocation() {
+        return location;
+    }
+
+    public void setLocation(int x, int y, int level) {
+        location = new int[]{x, y, level};
     }
 
     public int getAge() {

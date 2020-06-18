@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Main {
     private static AntManager man;
-
     public static void addAntFromBrood(Brood b) {
         man.addAntFromBrood(b);
     }
@@ -25,7 +24,7 @@ public class Main {
         int worldY = 10;
         man = new AntManager();
         World world = new World(worldX, worldY);
-
+        world.print();
         boolean simFlag = true;
 
 //        for (Level l: world.levels
