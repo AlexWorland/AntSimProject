@@ -6,7 +6,7 @@ public class Ant {
     protected String nameOfQueen;
     protected int lifespan;
     protected boolean isDead = false;
-    protected int[] location;
+    protected Location location;
     protected int moveSpeed;
 
     public Ant() {
@@ -37,12 +37,12 @@ public class Ant {
         energy += f.getEnergy();
     }
 
-    public int[] getLocation() {
-        return location;
+    public void setLocation(int x, int y, int level, World w) {
+       location = w.getLevel(level).getLocation(x, y);
     }
 
-    public void setLocation(int x, int y, int level) {
-        location = new int[]{x, y, level};
+    public void setLoctaion(int x, int y, World w) {
+        location = w.getLevels().get(location.getLevel()).getLocation(x, y);
     }
 
     public int getAge() {

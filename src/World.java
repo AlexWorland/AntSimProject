@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class World {
-    protected int numOfLevels;
-    protected ArrayList<Level> levels;
-    protected int  levelX;
-    protected int levelY;
-    protected int defaultLevelXY = 128;
+    private int numOfLevels;
+    private final ArrayList<Level> levels;
+    private int  levelX;
+    private int levelY;
+    private int defaultLevelXY = 128;
 
     public World() {
         numOfLevels = 0;
@@ -24,6 +24,21 @@ public class World {
         numOfLevels++;
     }
 
+    public World(int x, int y, int numOfLevels) {
+        this.numOfLevels = numOfLevels;
+        levelX = x;
+        levelY = y;
+        levels = new ArrayList<Level>();
+        for (int i = 0; i < numOfLevels; i++) {
+            levels.add(new Level(levelX, levelY, i));
+        }
+    }
+
+    public void addLevel() {
+        levels.add(new Level(levelX, levelY, numOfLevels));
+        numOfLevels++;
+    }
+
     public Level getLevel(int level) {
         return levels.get(level);
     }
@@ -35,10 +50,27 @@ public class World {
         return levels.get(c).getLocation(a, b);
     }
 
+    public int getNumOfLevels() {
+        return numOfLevels;
+    }
+
+    public ArrayList<Level> getLevels() {
+        return levels;
+    }
+
+    public int getLevelX() {
+        return levelX;
+    }
+
+    public int getLevelY() {
+        return levelY;
+    }
+
     public void print() {
         for (Level l: levels
              ) {
             l.print();
+            System.out.print("\n\n");
         }
     }
 
@@ -95,6 +127,9 @@ class Level {
         return list;
     }
 
+    /*
+    TODO might want to make food not appear in walls. Maybe thats ok, but they need to dig the wall first
+     */
     public ArrayList<ArrayList<Location>> foodGen(ArrayList<ArrayList<Location>> list) {
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {

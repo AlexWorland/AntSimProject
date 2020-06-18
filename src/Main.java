@@ -22,8 +22,9 @@ public class Main {
 
         int worldX = 10;
         int worldY = 10;
+        int numOfLevels = 2;
         man = new AntManager();
-        World world = new World(worldX, worldY);
+        World world = new World(worldX, worldY, numOfLevels);
         world.print();
         boolean simFlag = true;
 
