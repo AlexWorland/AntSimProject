@@ -26,8 +26,19 @@ public class Drone extends Ant {
             location.setIsWall(false);
             energy -= 10;
         }
+    } //TODO need this to be worked out
+
+    public void moveDirt() { //TODO maybe make a dirt object? Probably dont need to but might not hurt?
+
     }
 
+    public void placeDirt() {
+
+    }
+
+    public void feedBrood() { //TODO brood feeding mechanism
+
+    }
 
 
 }
