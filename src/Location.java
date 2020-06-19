@@ -6,6 +6,10 @@ public class Location {
     private boolean hasFood;
     private Food food;
     private boolean isWall;
+    private boolean containsAnt;
+    private boolean containsBrood;
+    private Brood brood;
+    private Ant ant;
 
     public Location(int x, int y, int level) {
         this.x = x;
@@ -13,15 +17,17 @@ public class Location {
         this.level = level;
         hasFood = false;
         isWall = false;
+        containsAnt = false;
+        ant = null;
     }
 
-    public Location() {
-        x = 0;
-        y = 0;
-        level = 0;
-        hasFood = false;
-        isWall = false;
-    }
+//    public Location() {
+//        x = 0;
+//        y = 0;
+//        level = 0;
+//        hasFood = false;
+//        isWall = false;
+//    }
 
 //    public Location(World w, int x, int y, int level) {
 //        this.x = x;
@@ -80,5 +86,46 @@ public class Location {
 
     public int getLevel() {
         return level;
+    }
+
+    public boolean getContainsAnt() {
+        return containsAnt;
+    }
+
+    public void addAnt(Ant a) {
+        containsAnt = true;
+        ant = a;
+    }
+
+    public Ant removeAnt() {
+        containsAnt = false;
+        Ant a = ant;
+        ant = null; //PROBABY BAD. COPY METHOD PROBABLY NEEDED
+        return a;
+    }
+
+    public void addBrood(Brood b) {
+        containsBrood = true;
+        brood = b;
+    }
+
+    public Brood moveBrood() {
+        containsBrood = false;
+        Brood b = brood;
+        brood = null;
+        return b;
+    }
+
+    public void removeBrood() {
+        containsBrood = false;
+        brood = null;
+    }
+
+    public boolean getContainsBrood() {
+        return containsBrood;
+    }
+
+    public boolean canLayBrood() {
+        return !(isWall && containsBrood);
     }
 }

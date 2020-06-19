@@ -43,6 +43,10 @@ public class World {
         return levels.get(level);
     }
 
+    public Location getOrigin() {
+        return getLocation(0, 0, 0);
+    }
+
     public Location getLocation(int x, int y, int level) {
         int a = x;
         int b = y;

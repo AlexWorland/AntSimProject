@@ -40,7 +40,8 @@ public class Main {
 //            }
 //        }
 
-        man.addQueen("THEQUEEN");
+//        man.addQueen("THEQUEEN");
+        man.spawnQueen(world.getOrigin(), "THE QUEEN");
 
         int time = 0;
         while (simFlag) {

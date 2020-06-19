@@ -26,8 +26,12 @@ public class Queen extends Ant {
     }
 
     public void layBrood() {
-        offspring++;
-        Main.addBrood(this);
+        if(location.canLayBrood()) {
+            offspring++;
+            Main.addBrood(this);
+        } else {
+            //DO NOTHING
+        }
     }
 
     public int getOffspring() {

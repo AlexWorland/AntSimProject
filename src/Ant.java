@@ -41,8 +41,12 @@ public class Ant {
        location = w.getLevel(level).getLocation(x, y);
     }
 
-    public void setLoctaion(int x, int y, World w) {
+    public void setLocation(int x, int y, World w) {
         location = w.getLevels().get(location.getLevel()).getLocation(x, y);
+    }
+
+    public void setLocation(Location l) {
+        location = l;
     }
 
     public int getAge() {
@@ -56,4 +60,5 @@ public class Ant {
     public String getType() {
         return type;
     }
+
 }

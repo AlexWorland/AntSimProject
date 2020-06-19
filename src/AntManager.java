@@ -15,9 +15,9 @@ public class AntManager {
 
 
     public AntManager() {
-        droneThreshold = 3000;
-        soldierThreshold = 2000;
-        queenThreshold = 10;
+        droneThreshold = 30000;
+        soldierThreshold = 20000;
+        queenThreshold = 1000;
     }
 
     public void addAntFromBrood(Brood b) {
@@ -120,6 +120,69 @@ public class AntManager {
     public void printStatus() {
         System.out.print("Queens: " + queens.size() + " Soldiers: " + soldiers.size() +
                 " Drones: " + drones.size() + " Brood: " + brood.size() + " Dead: " + deadAntsList.size());
+    }
+
+//    public void spawnAnt(Ant a, Location l) {
+//        if(l.getIsWall()) {
+//            //TODO Something
+//         } else if (!l.getContainsAnt()) {
+//            a.setLocation(l);
+//            l.addAnt(a);
+//        }
+//    }
+
+    public void spawnQueen(Location l, String name) {
+        if (validSpawnCheck(l)) {
+            Queen q = new Queen(name);
+            q.setLocation(l);
+            l.addAnt(q);
+            queens.add(q);
+        } else {
+            System.out.println("Space already occupied by ant or wall.");
+        }
+    }
+
+    public void spawnSoldier(Location l) {
+        if (validSpawnCheck(l)) {
+            Soldier s = new Soldier();
+            s.setLocation(l);
+            l.addAnt(s);
+            soldiers.add(s);
+        } else {
+            System.out.println("Space already occupied by ant or wall.");
+        }
+    }
+
+    public void spawnDrone(Location l) {
+        if (validSpawnCheck(l)) {
+            Drone d = new Drone();
+            d.setLocation(l);
+            l.addAnt(d);
+            drones.add(d);
+        } else {
+            System.out.println("Space already occupied by ant or wall.");
+        }
+    }
+
+    public void spawnBrood(Location l) {
+        if (validSpawnCheck(l)) {
+            Brood b = new Brood();
+            b.setLocation(l);
+            l.addAnt(b);
+            brood.add(b);
+        } else {
+            System.out.println("Space already occupied by ant or wall.");
+        }
+    }
+
+    public boolean validSpawnCheck(Location l) {
+        if (l.getIsWall()) {
+            return false;
+        } else if (l.getContainsAnt()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 //    public void removeAnt(Ant a) {
