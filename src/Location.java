@@ -97,6 +97,13 @@ public class Location {
         ant = a;
     }
 
+    public void addAntFromBrood(Ant a) {
+        containsAnt = true;
+        containsBrood = false;
+        brood = null;
+        ant = a;
+    }
+
     public Ant removeAnt() {
         containsAnt = false;
         Ant a = ant;
@@ -126,6 +133,33 @@ public class Location {
     }
 
     public boolean canLayBrood() {
-        return !(isWall && containsBrood);
+        return (!isWall && !containsBrood);
+    }
+
+    public void print() {
+
+        if (isWall) {
+            System.out.print("1");
+        } else {
+            System.out.print("0");
+        }
+
+        if (hasFood) {
+            System.out.print("F");
+        } else {
+            System.out.print("0");
+        }
+
+        if(containsAnt) {
+            System.out.print("A");
+        } else {
+            System.out.print("0");
+        }
+
+        if (containsBrood) {
+            System.out.print("B");
+        } else {
+            System.out.print("0");
+        }
     }
 }

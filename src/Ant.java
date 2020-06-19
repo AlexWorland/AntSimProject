@@ -49,6 +49,10 @@ public class Ant {
         location = l;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
     public int getAge() {
         return age;
     }
@@ -59,6 +63,14 @@ public class Ant {
 
     public String getType() {
         return type;
+    }
+
+    public void move() {
+        /*
+         *TODO: Move mechanic. seek out food. If no food is within range, dig down if possible?
+         *  also needs a way to take food to brood or storage area. Maybe subtype of drone to
+         *  look after babies?
+         */
     }
 
 }

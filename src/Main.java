@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
@@ -14,15 +15,28 @@ public class Main {
         man.addBrood(q);
     }
 
+    public static void clearConsole() throws IOException {
+        final String os = System.getProperty("os.name");
+
+        if (os.contains("Windows"))
+        {
+            Runtime.getRuntime().exec("cls");
+        }
+        else
+        {
+            Runtime.getRuntime().exec("clear");
+        }
+    }
+
     public static void main(String[] args) {
         //TODO Create World
-        //TODO Intialize Ants
+        //TODO Initialize Ants
         //TODO Ask how many ants to start with
         //TODO Ask How long Simulation
 
         int worldX = 10;
         int worldY = 10;
-        int numOfLevels = 20;
+        int numOfLevels = 1;
         man = new AntManager();
         World world = new World(worldX, worldY, numOfLevels);
         world.print();
@@ -41,17 +55,34 @@ public class Main {
 //        }
 
 //        man.addQueen("THEQUEEN");
-        man.spawnQueen(world.getOrigin(), "THE QUEEN");
+        boolean canSpawn = false;
+        int i = 0;
+        int j = 0;
+        while(!man.spawnQueen(world.getLocation(i, j, 0), "THE QUEEN")) {
+            if (i < world.getLevelX()) {
+                i++;
+            } else if (j < world.getLevelY()){
+                j++;
+                i = 0;
+            }
+        }
 
         int time = 0;
         while (simFlag) {
 
             man.advanceTime();
             time++;
+            world.print();
             System.out.print("\rTime: " + time + " ");
             man.printStatus();
-            System.out.print("\r");
-
+//            System.out.print("\r");
+            try {
+                clearConsole();
+                System.out.print("\033[H\033[2J");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println();
 //            System.out.print("\rTime: " + time + " Queens: " + man.queens.size() + " Soliders: " + man.soldiers.size() +
 //                    " Drones: " + man.drones.size() + " Brood: " + man.brood.size() + "\r");
 //            if (time == 50000) {

@@ -29,7 +29,7 @@ public class Brood extends Ant{
     }
 
     public void Grow() {
-        Main.addAntFromBrood(this);
+        Main.addAntFromBrood(this); // TODO NEED TO LOOK AT. What happens when growing time comes and theres already an ant on the tile?
     }
 
 

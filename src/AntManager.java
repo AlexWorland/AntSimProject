@@ -23,10 +23,13 @@ public class AntManager {
     public void addAntFromBrood(Brood b) {
         if (queens.size() < queenThreshold) {
             queens.add(new Queen(b));
+            b.getLocation().addAntFromBrood(queens.get(queens.size()-1));
         } else if (drones.size() < droneThreshold) {
             drones.add(new Drone(b));
+            b.getLocation().addAntFromBrood(drones.get(drones.size()-1));
         } else if (soldiers.size() < soldierThreshold) {
             soldiers.add(new Soldier(b));
+            b.getLocation().addAntFromBrood(soldiers.get(soldiers.size()-1));
         }
     }
 
@@ -103,6 +106,8 @@ public class AntManager {
 
     public void addBrood(Queen q) {
         brood.add(new Brood(q.name));
+        brood.get(brood.size()-1).setLocation(q.getLocation());
+        q.getLocation().addBrood(brood.get(brood.size()-1));
     }
 
     public void addQueen(String s) {
@@ -131,14 +136,16 @@ public class AntManager {
 //        }
 //    }
 
-    public void spawnQueen(Location l, String name) {
+    public boolean spawnQueen(Location l, String name) {
         if (validSpawnCheck(l)) {
             Queen q = new Queen(name);
             q.setLocation(l);
             l.addAnt(q);
             queens.add(q);
+            return true;
         } else {
             System.out.println("Space already occupied by ant or wall.");
+            return false;
         }
     }
 

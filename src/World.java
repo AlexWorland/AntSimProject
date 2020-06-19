@@ -200,16 +200,7 @@ class Level {
              ) {
             for (Location l: ar
                  ) {
-                if (l.getIsWall()) {
-                    System.out.print(1);
-                } else {
-                    System.out.print(0);
-                }
-                if (l.getHasFood()) {
-                    System.out.print(1);
-                } else {
-                    System.out.print(0);
-                }
+                l.print();
                 System.out.print("    ");
             }
             System.out.println();
