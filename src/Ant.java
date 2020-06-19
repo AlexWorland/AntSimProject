@@ -65,12 +65,14 @@ public class Ant {
         return type;
     }
 
-    public void move() {
+    public void move(World w) {
         /*
          *TODO: Move mechanic. seek out food. If no food is within range, dig down if possible?
          *  also needs a way to take food to brood or storage area. Maybe subtype of drone to
-         *  look after babies?
+         *  look after babies? And feed queen. Queen cant feed herself.
          */
-    }
 
+
+
+    }
 }

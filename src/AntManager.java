@@ -1,6 +1,4 @@
-import java.lang.invoke.TypeDescriptor;
 import java.util.ArrayList;
-import java.util.ListIterator;
 
 public class AntManager {
 
@@ -185,7 +183,7 @@ public class AntManager {
     public boolean validSpawnCheck(Location l) {
         if (l.getIsWall()) {
             return false;
-        } else if (l.getContainsAnt()) {
+        } else if (l.getHasAnt()) {
             return false;
         } else {
             return true;

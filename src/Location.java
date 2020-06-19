@@ -6,8 +6,8 @@ public class Location {
     private boolean hasFood;
     private Food food;
     private boolean isWall;
-    private boolean containsAnt;
-    private boolean containsBrood;
+    private boolean hasAnt;
+    private boolean hasBrood;
     private Brood brood;
     private Ant ant;
 
@@ -17,7 +17,7 @@ public class Location {
         this.level = level;
         hasFood = false;
         isWall = false;
-        containsAnt = false;
+        hasAnt = false;
         ant = null;
     }
 
@@ -88,52 +88,75 @@ public class Location {
         return level;
     }
 
-    public boolean getContainsAnt() {
-        return containsAnt;
+    public boolean getHasAnt() {
+        return hasAnt;
     }
 
     public void addAnt(Ant a) {
-        containsAnt = true;
+        hasAnt = true;
         ant = a;
     }
 
     public void addAntFromBrood(Ant a) {
-        containsAnt = true;
-        containsBrood = false;
+        hasAnt = true;
+        hasBrood = false;
         brood = null;
         ant = a;
     }
 
     public Ant removeAnt() {
-        containsAnt = false;
+        hasAnt = false;
         Ant a = ant;
         ant = null; //PROBABY BAD. COPY METHOD PROBABLY NEEDED
         return a;
     }
 
     public void addBrood(Brood b) {
-        containsBrood = true;
+        hasBrood = true;
         brood = b;
     }
 
     public Brood moveBrood() {
-        containsBrood = false;
+        hasBrood = false;
         Brood b = brood;
         brood = null;
         return b;
     }
 
     public void removeBrood() {
-        containsBrood = false;
+        hasBrood = false;
         brood = null;
     }
 
-    public boolean getContainsBrood() {
-        return containsBrood;
+    public boolean getHasBrood() {
+        return hasBrood;
     }
 
-    public boolean canLayBrood() {
-        return (!isWall && !containsBrood);
+    public boolean canPlaceBrood() {
+        return (!isWall && !hasBrood && !hasFood);
+    }
+
+    public boolean canPlaceDirt() {
+        return (!isWall && !hasFood && !hasBrood);
+    }
+
+    public boolean canRemoveDirt() {
+        // return (!)
+        /* TODO: Figure out if dirt can be removed. (Only if no food and no brood, although if its a wall its -
+                assumed that no ants/brood can be present.)
+         */
+    }
+
+    public void placeDirt() {
+        isWall = true;
+    }
+
+    public void removeDirt() {
+        isWall = false;
+    }
+
+    public boolean canPlaceFood() {
+        return (!hasFood && !isWall);
     }
 
     public void print() {
@@ -150,13 +173,13 @@ public class Location {
             System.out.print("0");
         }
 
-        if(containsAnt) {
+        if(hasAnt) {
             System.out.print("A");
         } else {
             System.out.print("0");
         }
 
-        if (containsBrood) {
+        if (hasBrood) {
             System.out.print("B");
         } else {
             System.out.print("0");
