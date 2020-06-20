@@ -21,11 +21,22 @@ public class Brood extends Ant{
     @Override
     public void advanceTime() {
         super.advanceTime();
+        if (energy < 50 && food != null) {
+            eat();
+        }
         timeTillGrown--;
         if (timeTillGrown == 0) {
             hasGrown = true;
             Grow();
         }
+    }
+
+    public void recieveFood(Food f) {
+        food = f;
+    }
+
+    public boolean canRecieveFood() {
+        return (food == null);
     }
 
     public void Grow() {

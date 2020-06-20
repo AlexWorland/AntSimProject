@@ -137,7 +137,7 @@ public class Location {
     }
 
     public boolean canPlaceDirt() {
-        return (!isWall && !hasFood && !hasBrood);
+        return (!isWall && !hasFood && !hasBrood && !hasAnt);
     }
 
     public boolean canRemoveDirt() {
@@ -145,6 +145,8 @@ public class Location {
         /* TODO: Figure out if dirt can be removed. (Only if no food and no brood, although if its a wall its -
                 assumed that no ants/brood can be present.)
          */
+
+        return !hasFood && !hasAnt && !hasBrood && isWall;
     }
 
     public void placeDirt() {

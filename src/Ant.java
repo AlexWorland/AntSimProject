@@ -8,6 +8,7 @@ public class Ant {
     protected boolean isDead = false;
     protected Location location;
     protected int moveSpeed;
+    protected Food food;
 
     public Ant() {
         age = 0;
@@ -28,13 +29,19 @@ public class Ant {
 
     public void advanceTime() {
         age++;
-        if (age >= lifespan) {
+        energy--;
+        if (age >= lifespan && energy == 0) {
             this.isDead = true;
         }
     }
 
     public void eat(Food f) {
         energy += f.getEnergy();
+    }
+
+    public void eat() {
+        energy += food.getEnergy();
+        food = null;
     }
 
     public void setLocation(int x, int y, int level, World w) {

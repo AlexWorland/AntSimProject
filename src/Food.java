@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Food {
-    protected int energy;
+    private final int energy;
 
     public Food() {
         Random rand = new Random();

@@ -27,19 +27,30 @@ public class Drone extends Ant {
     }
 
     public void dig() {
-        if (location.getIsWall()) {
-            location.setIsWall(false);
+
+        //TODo: need a way to determine which direction to be dug.
+
+        if (location.canRemoveDirt() && !hasDirt && energy > 10) {
+            location.removeDirt();
             energy -= 10;
+            hasDirt = true;
         }
-    } //TODO need this to be worked out
-
-    public void moveDirt() { //TODO maybe make a dirt object? Probably dont need to but might not hurt?
-
     }
 
+    public void dig(Location l) {
+        if (l.canRemoveDirt() && !hasDirt && energy > 10) {
+            l.removeDirt();
+            energy -= 10;
+            hasDirt = true;
+        }
+    }
+
+    // public void moveDirt() {} //TODO maybe make a dirt object? Probably dont need to but might not hurt?
+
     public void placeDirt() {
-        if(!location.getHasFood()) {
-            location.setHasFood(true);
+        if (location.canPlaceDirt() && hasDirt) {
+            hasDirt = false;
+            location.placeDirt();
         }
         // TODO if not then needs to look somewhere else
     }
@@ -49,8 +60,9 @@ public class Drone extends Ant {
     }
 
     public void pickUpDirt() {
-        if (location.can) {
+        if (location.canRemoveDirt() && !hasDirt) {
             hasDirt = true;
+            location.removeDirt();
         }
     }
 
