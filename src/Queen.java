@@ -1,7 +1,7 @@
 public class Queen extends Ant {
 
-    protected int offspring;
-    protected String ogName;
+    private int offspring;
+    private final String ogName;
 
     public Queen(String name) {
         age = 0;

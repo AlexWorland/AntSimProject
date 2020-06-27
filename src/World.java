@@ -6,7 +6,7 @@ public class World {
     private final ArrayList<Level> levels;
     private int  levelX;
     private int levelY;
-    private int defaultLevelXY = 128;
+    private final int defaultLevelXY = 128;
 
     public World() {
         numOfLevels = 0;
@@ -48,10 +48,7 @@ public class World {
     }
 
     public Location getLocation(int x, int y, int level) {
-        int a = x;
-        int b = y;
-        int c = level;
-        return levels.get(c).getLocation(a, b);
+        return levels.get(level).getLocation(x, y);
     }
 
     public int getNumOfLevels() {

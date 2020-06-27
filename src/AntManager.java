@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 public class AntManager {
 
-    ArrayList<Queen> queens = new ArrayList<Queen>();
-    ArrayList<Drone> drones = new ArrayList<Drone>();
-    ArrayList<Soldier> soldiers = new ArrayList<Soldier>();
-    ArrayList<Brood> brood = new ArrayList<Brood>();
-    ArrayList<Ant> deadAntsList = new ArrayList<Ant>();
-    protected int droneThreshold;
-    protected int soldierThreshold;
-    protected int queenThreshold;
+    private final ArrayList<Queen> queens = new ArrayList<Queen>();
+    private final ArrayList<Drone> drones = new ArrayList<Drone>();
+    private final ArrayList<Soldier> soldiers = new ArrayList<Soldier>();
+    private final ArrayList<Brood> brood = new ArrayList<Brood>();
+    private final ArrayList<Ant> deadAntsList = new ArrayList<Ant>();
+    private final int droneThreshold;
+    private final int soldierThreshold;
+    private final int queenThreshold;
 
 
     public AntManager() {
@@ -34,6 +34,9 @@ public class AntManager {
     public void advanceTime() {
         ArrayList<Ant> deadAnts = new ArrayList<Ant>();
         ArrayList<Brood> grownBrood = new ArrayList<Brood>();
+
+        //TODO: Check if brood, drones, and queens are empty.
+
         for (Brood b : brood
         ) {
             b.advanceTime();
@@ -183,11 +186,7 @@ public class AntManager {
     public boolean validSpawnCheck(Location l) {
         if (l.getIsWall()) {
             return false;
-        } else if (l.getHasAnt()) {
-            return false;
-        } else {
-            return true;
-        }
+        } else return !l.getHasAnt();
     }
 
 //    public void removeAnt(Ant a) {

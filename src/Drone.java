@@ -1,4 +1,3 @@
-import org.jetbrains.annotations.NotNull;
 
 public class Drone extends Ant {
 
@@ -6,6 +5,7 @@ public class Drone extends Ant {
     private boolean hasDirt;
     private boolean hasBrood;
     private Food food;
+    private Brood brood;
 
     public Drone() {
         age = 0;

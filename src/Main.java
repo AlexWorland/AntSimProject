@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Main {
     private static AntManager man;
@@ -68,7 +67,7 @@ public class Main {
         }
 
         int time = 0;
-        while (simFlag) {
+        while (simFlag) { //TODO need a way to stop the sim.
 
             man.advanceTime();
             time++;
