@@ -31,7 +31,10 @@ public class Main {
         //TODO Create World
         //TODO Initialize Ants
         //TODO Ask how many ants to start with
-        //TODO Ask How long Simulation
+        /*TODO Ask How long Simulation
+            or how about setting up an event listener for a keyboard button?
+         */
+
 
         int worldX = 10;
         int worldY = 10;
